@@ -26,14 +26,11 @@ namespace y.hex.convert
 
             var span = new ReadOnlySpan<byte>(ba.Reverse().ToArray());
 
-            if (hex.Length == 4)
+            return (hex.Length / 2) switch
             {
-                return BinaryPrimitives.ReadInt16LittleEndian(span);
-            }
-            else
-            {
-                return BinaryPrimitives.ReadInt32LittleEndian(span);
-            }
+                sizeof(int) => BinaryPrimitives.ReadInt32LittleEndian(span),
+                _ => BinaryPrimitives.ReadInt16LittleEndian(span),
+            };
         }
     }
 }
