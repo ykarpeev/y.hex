@@ -23,7 +23,16 @@ namespace y.hex.convert
         {
             var ba = Enumerable.Range(0, hex.Length / 2).
                 Select(x => Convert.ToByte(hex.Substring(x * 2, 2), 16));
-
+     
+            if (int.TryParse(
+              hex,
+              System.Globalization.NumberStyles.HexNumber,
+              System.Globalization.CultureInfo.InvariantCulture,
+              out int res))
+          {
+          return 0;
+          }
+            
             var span = new ReadOnlySpan<byte>(ba.Reverse().ToArray());
 
             return (hex.Length / 2) switch
