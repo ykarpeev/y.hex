@@ -29,6 +29,7 @@ namespace y.hex.convert
             return (hex.Length / 2) switch
             {
                 sizeof(int) => BinaryPrimitives.ReadInt32LittleEndian(span),
+                0 => 0,
                 _ => BinaryPrimitives.ReadInt16LittleEndian(span),
             };
         }
