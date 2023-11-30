@@ -18,5 +18,14 @@ namespace y.hex.convert.Tests
         {
             Assert.That(hexString.FromHex, Is.EqualTo(expected));
         }
+
+      /// <summary>
+      /// Empty hex string test.
+      /// </summary>
+      [Test]
+      public void EmptyHexTest()
+      {
+          Assert.That(string.Empty.FromHex, Is.EqualTo(0));
+      }
     }
 }
