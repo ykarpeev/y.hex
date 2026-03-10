@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="y.hex.convert/y.hex.convert.csproj" />
+  <Project Path="y.hex.convertTests/y.hex.convertTests.csproj" />
+</Solution>
